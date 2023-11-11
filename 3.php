@@ -27,14 +27,12 @@ file_put_contents('in.json', json_encode($info));
 $users = explode("\n",file_get_contents("u3"));
 foreach($users as $user){
     $kd = strlen($user);
-    if($user != ""){
+    ifif($user != ""){
     try{$MadelineProto->messages->getPeerDialogs(['peers' => [$user]]);
         $x++;
     }catch (\danog\MadelineProto\Exception | \danog\MadelineProto\RPCErrorException $e) {
                 try{$MadelineProto->account->updateUsername(['username'=>$user]);
                     $videoLink = 'https://telegra.ph/file/b24e6518dd168c9945373.mp4';
-                    $caption="𝑰𝒔 𝒂 𝑵𝒆𝒘 𝒖𝒔𝒆𝒓 𝑩𝒚 : 𝒂𝑩𝒐𝒐𝑫 𝒀𝒂𝑩𝒉 🐊,
-এ〔 𝑼𝒔𝒆𝒓𝒏𝒂𝒎𝒆 〕: @{$user} \nএ = 'https://telegra.ph/file/b24e6518dd168c9945373.mp4';
                     $caption="𝑰𝒔 𝒂 𝑵𝒆𝒘 𝒖𝒔𝒆𝒓 𝑩𝒚 : 𝒂𝑩𝒐𝒐𝑫 𝒀𝒂𝑩𝒉 🐊,
 এ〔 𝑼𝒔𝒆𝒓𝒏𝒂𝒎𝒆 〕: @{$user} \nএ〔 𝑪𝒍𝒊𝒄𝒌𝒔 〕: $x \nএ〔 𝑺𝒂𝒗𝒆 〕: 𝑨𝒄𝒄𝒐𝒖𝒏𝒕 \nএ〔 𝑪𝒉 〕: @YaBhTeam";
                     bot('sendVideo', ['chat_id' => file_get_contents("ID"), 'video' => $videoLink, 'caption' => $caption,]);
